@@ -37,8 +37,9 @@ public class ConnectTest {
   JavascriptExecutor js;
   @Before
   public void setUp() {
-    driver = new ChromeDriver();
-    js = (JavascriptExecutor) driver;
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--headless");
+    driver = new ChromeDriver(options);
     vars = new HashMap<String, Object>();
   }
   @After
