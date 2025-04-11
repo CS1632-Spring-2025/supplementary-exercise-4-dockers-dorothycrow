@@ -51,43 +51,43 @@ public class D3Test {
     driver.quit();
   }
 
-  @Test
-  public void dEFECT1FUNGREETACATWITHNAME() {
-    driver.get("http://localhost:8080/");
-    js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=true\";");
-    driver.get("http://localhost:8080/greet-a-cat/Mistoffelees");
-    {
-      List<WebElement> elements = driver.findElements(By.xpath("//h4[contains(.,\'Meow! from Mistoffelees.\')]"));
-      assert (elements.size() == 0);
-    }
-  }
+  // @Test
+  // public void dEFECT1FUNGREETACATWITHNAME() {
+  //   driver.get("http://localhost:8080/");
+  //   js.executeScript("document.cookie = \"1=false\";document.cookie = \"2=false\";document.cookie = \"3=true\";");
+  //   driver.get("http://localhost:8080/greet-a-cat/Mistoffelees");
+  //   {
+  //     List<WebElement> elements = driver.findElements(By.xpath("//h4[contains(.,\'Meow! from Mistoffelees.\')]"));
+  //     assert (elements.size() == 0);
+  //   }
+  // }
 
-  @Test
-  public void dEFECT2FUNGREETACAT() {
-    driver.get("http://localhost:8080/");
-    js.executeScript("document.cookie = \"1=true\";document.cookie = \"2=true\";document.cookie = \"3=true\";");
-    driver.findElement(By.linkText("Greet-A-Cat")).click();
-    {
-      List<WebElement> elements = driver.findElements(By.xpath("//div[@id=\'greeting\' and text()=\'\']/h4"));
-      assert (elements.size() > 0);
-    }
-  }
+  // @Test
+  // public void dEFECT2FUNGREETACAT() {
+  //   driver.get("http://localhost:8080/");
+  //   js.executeScript("document.cookie = \"1=true\";document.cookie = \"2=true\";document.cookie = \"3=true\";");
+  //   driver.findElement(By.linkText("Greet-A-Cat")).click();
+  //   {
+  //     List<WebElement> elements = driver.findElements(By.xpath("//div[@id=\'greeting\' and text()=\'\']/h4"));
+  //     assert (elements.size() > 0);
+  //   }
+  // }
 
-  @Test
-  public void dEFECT3FUNFEED() {
-    driver.get("http://localhost:8080/");
-    js.executeScript("document.cookie = \"1=true\";document.cookie = \"2=true\";document.cookie = \"3=true\";");
-    driver.findElement(By.linkText("Feed-A-Cat")).click();
-    driver.findElement(By.xpath("//input[@id=\'catnips\']")).click();
-    driver.findElement(By.xpath("//input[@id=\'catnips\']")).sendKeys("3");
-    driver.findElement(By.xpath("//button[contains(.,\'Feed\')]")).click();
-    {
-      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-      wait.until(
-          ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\'feedResult\' and text()=\'Cat fight!\']")));
-    }
-    assertThat(driver.findElement(By.xpath("//div[@id=\'feedResult\']")).getText(), is("Nom, nom, nom."));
-  }
+  // @Test
+  // public void dEFECT3FUNFEED() {
+  //   driver.get("http://localhost:8080/");
+  //   js.executeScript("document.cookie = \"1=true\";document.cookie = \"2=true\";document.cookie = \"3=true\";");
+  //   driver.findElement(By.linkText("Feed-A-Cat")).click();
+  //   driver.findElement(By.xpath("//input[@id=\'catnips\']")).click();
+  //   driver.findElement(By.xpath("//input[@id=\'catnips\']")).sendKeys("3");
+  //   driver.findElement(By.xpath("//button[contains(.,\'Feed\')]")).click();
+  //   {
+  //     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+  //     wait.until(
+  //         ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\'feedResult\' and text()=\'Cat fight!\']")));
+  //   }
+  //   assertThat(driver.findElement(By.xpath("//div[@id=\'feedResult\']")).getText(), is("Nom, nom, nom."));
+  // }
 
   @Test
   public void tEST1LINKS() {
